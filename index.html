@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer</title>
+    <title>SFS Teaching Resource</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -14,6 +14,7 @@
             <option value="">Select Term</option>
             <option value="term1">Term 1</option>
             <option value="term2">Term 2</option>
+            <option value="term3">Term 3</option>
         </select>
         <div id="term1" class="term hidden">
             <select id="audio-select-term1" class="w-full p-2 border rounded-lg" onchange="playMedia('audio', 'term1')">
@@ -50,27 +51,98 @@
                 <option value="term1/video/unit5_2.webm">Walking to School-Describing Words</option>
                 <option value="term1/video/poem3.webm">Tulips</option>
             </select>
-            <select id="pdf-select-term1" class="w-full p-2 border rounded-lg" onchange="playMedia('pdf', 'term1')">
+            <select id="pdf-select-term1" class="w-full p-2 border rounded-lg" onchange="openPdf('term1')">
                 <option value="">Select PDF</option>
-                <option value="your-document1-term1.pdf">Document 1</option>
-                <option value="your-document2-term1.pdf">Document 2</option>
+                <option value="term1/pdf/u1_ws.pdf">Worksheet 1</option>
+                <option value="term1/pdf/u2_ws.pdf">Worksheet 2</option>
+                <option value="term1/pdf/u3_ws.pdf">Worksheet 3</option>
+                <option value="term1/pdf/u4_ws.pdf">Worksheet 4</option>
+                <option value="term1/pdf/u5_ws.pdf">Worksheet 5</option>
             </select>
         </div>
         <div id="term2" class="term hidden">
             <select id="audio-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('audio', 'term2')">
                 <option value="">Select Audio</option>
-                <option value="your-audio1-term2.mp3">Audio 1</option>
-                <option value="your-audio2-term2.mp3">Audio 2</option>
+                <option value="term2/audio/unit1_1.ogg">In the Childrens Park -Text Audio</option>
+                <option value="term2/audio/unit1_2.ogg">In the Childrens Park - Speech Practice</option>
+                <option value="term2/audio/poem1.ogg">Whisky Frisky</option>
+                <option value="term2/audio/unit2_1.ogg">Keep The Beach Clean -Text Audio</option>
+                <option value="term2/audio/unit2_2.ogg">Keep The Beach Clean -Fuctions</option>
+                <option value="term2/audio/unit3_1.ogg">Little Boy and Little Cat -Text Audio</option>
+                <option value="term2/audio/unit3_2.ogg">Little Boy and Little Cat -Listening</option>
+                <option value="term2/audio/unit3_3.ogg">Little Boy and Little Cat -Speech Practice</option>
+                <option value="term2/audio/poem2.ogg">Sparrows</option>
+                <option value="term2/audio/unit4_1.ogg">The Missing Honey Pot -Text Audio</option>
+                <option value="term2/audio/unit4_2.ogg">The Missing Honey Pot -Functions</option>
+                <option value="term2/audio/unit5_1.ogg">The Kite -Text Audio</option>
+                <option value="term2/audio/unit5_2.ogg">The Kite -Listening</option>
+                <option value="term2/audio/unit5_3.ogg">The Kite -Speech Practice</option>
+                
             </select>
             <select id="video-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('video', 'term2')">
                 <option value="">Select Video</option>
-                <option value="your-video1-term2.mp4">Video 1</option>
-                <option value="your-video2-term2.mp4">Video 2</option>
+                <option value="term2/video/unit1.webm">Verbs</option>
+                <option value="term2/video/poem1.webm">Whisky Frisky</option>
+                <option value="term2/video/unit2.webm">"a" "an"</option>
+                <option value="term2/video/unit3.webm">Prepositions of Place</option>
+                <option value="term2/video/poem2.webm">Sparrows</option>
+                <option value="term2/video/unit4_1.webm">The Missing Honey Pot</option>
+                <option value="term2/video/unit4_2.webm">Possesive Adjectives: his, her, its, my</option>
+                <option value="term2/video/unit5.webm">The Simple Present Tense</option>
             </select>
-            <select id="pdf-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('pdf', 'term2')">
+            <select id="pdf-select-term2" class="w-full p-2 border rounded-lg" onchange="openPdf('term2')">
                 <option value="">Select PDF</option>
-                <option value="your-document1-term2.pdf">Document 1</option>
-                <option value="your-document2-term2.pdf">Document 2</option>
+                <option value="term2/pdf/u1_ws.pdf">Worksheet 1</option>
+                <option value="term2/pdf/u2_ws.pdf">Worksheet 2</option>
+                <option value="term2/pdf/u3_ws.pdf">Worksheet 3</option>
+                <option value="term2/pdf/u4_ws.pdf">Worksheet 4</option>
+                <option value="term2/pdf/u5_ws.pdf">Worksheet 5</option>
+            </select>
+        </div>
+        <div id="term3" class="term hidden">
+            <select id="audio-select-term3" class="w-full p-2 border rounded-lg" onchange="playMedia('audio', 'term3')">
+                <option value="">Select Audio</option>
+                <option value="term3/audio/unit1_1.ogg">Daisy The Cow -Text Audio</option>
+                <option value="term3/audio/unit1_2.ogg">Daisy The Cow -Listening</option>
+                <option value="term3/audio/unit1_3.ogg">Daisy The Cow -Speech Practice</option>
+                <option value="term3/audio/poem1_1.ogg">The Kitty Ran Up The Tree -Text Audio</option>
+                <option value="term3/audio/poem1_2.ogg">The Kitty Ran Up The Tree -Emjoying the Poem</option>
+                <option value="term3/audio/unit2_1.ogg">Pets Day -Text Audio</option>
+                <option value="term3/audio/unit2_2.ogg">Pets Day -Functions</option>
+                <option value="term3/audio/poem2_1.ogg">When All the World's Asleep -Text Audio</option>
+                <option value="term3/audio/poem2_2.ogg">When All the World's Asleep -Words in Use</option>
+                <option value="term3/audio/unit3_1.ogg">At the Traffic Lights -Text Audio</option>
+                <option value="term3/audio/unit3_2.ogg">At the Traffic Lights -Speech Practice</option>
+                <option value="term3/audio/unit3_3.ogg">At the Traffic Lights -Functions</option>
+                <option value="term3/audio/poem3_1.ogg">Stop! Look! Listen! Think!</option>
+                <option value="term3/audio/poem3_2.ogg">Stop! Look! Listen! Think! -Listening</option>
+                <option value="term3/audio/poem3_3.ogg">Stop! Look! Listen! Think! -Going Further</option>
+                <option value="term3/audio/unit4_1.ogg">A Shell from the Sea -Text Audio</option>
+                <option value="term3/audio/unit4_2.ogg">A Shell from the Sea -Listening</option>
+                <option value="term3/audio/unit4_3.ogg">A Shell from the Sea -Speech Practice</option>
+                <option value="term3/audio/unit5_1.ogg">Champa's Fruit Basket -Text Audio</option>
+                <option value="term3/audio/unit5_2.ogg">Champa's Fruit Basket -Listening</option>
+
+            </select>
+            <select id="video-select-term3" class="w-full p-2 border rounded-lg" onchange="playMedia('video', 'term3')">
+                <option value="">Select Video</option>
+                <option value="term3/video/unit1.webm">is not / isn't</option>
+                <option value="term3/video/poem1.webm">The Kitty Ran up the Tree</option>
+                <option value="term3/video/unit2.webm">has, have</option>
+                <option value="term3/video/poem2.webm">When all the World's Asleep</option>
+                <option value="term3/video/unit3.webm">can, cannot</option>
+                <option value="term3/video/poem3.webm">Stop! Look! Listen! Think!</option>
+                <option value="term3/video/unit4.webm">The Simple Past Tense</option>
+                <option value="term3/video/unit5_1.webm">Chamba's Fruit Basket</option>
+                <option value="term3/video/unit5_2.webm">The Present Progressive Tense</option>
+            </select>
+            <select id="pdf-select-term3" class="w-full p-2 border rounded-lg" onchange="openPdf('term3')">
+                <option value="">Select PDF</option>
+                <option value="term3/pdf/u1_ws.pdf">Worksheet 1</option>
+                <option value="term3/pdf/u2_ws.pdf">Worksheet 2</option>
+                <option value="term3/pdf/u3_ws.pdf">Worksheet 3</option>
+                <option value="term3/pdf/u4_ws.pdf">Worksheet 4</option>
+                <option value="term3/pdf/u5_ws.pdf">Worksheet 5</option>
             </select>
         </div>
         <div id="media-container" class="mt-4 hidden">
@@ -85,7 +157,13 @@
             </video>
             <iframe id="pdf" class="hidden w-full h-64 mt-2"></iframe>
         </div>
+        <footer class="bg-stone-600 text-white text-center p-4 mt-6 w-full">
+            <br>Concept by Rev FR Joby Varghese T.O.R<br>Powered by Daniel <br> &copy; 2025 SFS Learning Resource. All rights reserved.
+        </footer>
     </div>
+    
+        
+     
     <script>
         function updateTerm() {
             document.querySelectorAll('.term').forEach(el => el.classList.add('hidden'));
@@ -108,6 +186,13 @@
                 mediaElement.classList.remove('hidden');
             }
         }
+        function openPdf(term) {
+            let selectedFile = document.getElementById('pdf-select-' + term).value;
+            if (selectedFile) {
+                window.open(selectedFile, '_blank');
+            }
+        }
     </script>
+    
 </body>
 </html>
