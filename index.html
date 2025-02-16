@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg">
+        
+        <h2 class="text-2xl font-bold mb-4 text-center">Class 1 English</h2>
+        <select id="term-select" class="w-full p-2 border rounded-lg mb-4" onchange="updateTerm()">
+            <option value="">Select Term</option>
+            <option value="term1">Term 1</option>
+            <option value="term2">Term 2</option>
+        </select>
+        <div id="term1" class="term hidden">
+            <select id="audio-select-term1" class="w-full p-2 border rounded-lg" onchange="playMedia('audio', 'term1')">
+                <option value="">Select Audio</option>
+                
+                <option value="term1/audio/unit1_1.ogg">What's That Noise ?-Text-Audio</option>
+                <option value="term1/audio/unit1_2.ogg">What's That Noise ?Listening</option>
+                <option value="term1/audio/unit2_1.ogg">Asmas House -Text-Audio</option>
+                <option value="term1/audio/unit2_2.ogg">Asmas House -Functions</option>
+                <option value="term1/audio/unit2_3.ogg">Asmas House -Speech Practice</option>
+                <option value="term1/audio/poem1.ogg">Slow Fast Song</option>
+                <option value="term1/audio/unit3_1.ogg">A Walk to the River -Text-Audio</option>
+                <option value="term1/audio/unit3_2.ogg">A Walk to the River -Functions</option>
+                <option value="term1/audio/unit4_1.ogg">Shopping -Text-Audio</option>
+                <option value="term1/audio/unit4_2.ogg">Shopping -Functions</option>
+                <option value="term1/audio/unit4_3.ogg">Shopping -Speech Practice</option>
+                <option value="term1/audio/poem2_1.ogg">Here is my Turtle</option>
+                <option value="term1/audio/poem2_2.ogg">Here is my Turtle -Going Further Audio</option>
+                <option value="term1/audio/unit5_1.ogg">Walking to School -Text-Audio</option>
+                <option value="term1/audio/unit5_2.ogg">Walking to School -Listening</option>
+                <option value="term1/audio/poem3.ogg">Tulips</option>
+            </select>
+            <select id="video-select-term1" class="w-full p-2 border rounded-lg" onchange="playMedia('video', 'term1')">
+                <option value="">Select Video</option>
+                <option value="term1/video/unit1_1.webm">What's That Noise ?</option>
+                <option value="term1/video/unit1_2.webm">What's That Noise ?Common Nouns</option>
+                <option value="term1/video/unit2.webm">Proper Nouns</option>
+                <option value="term1/video/poem1.webm">Slow Fast Song</option>
+                <option value="term1/video/unit3_1.webm">A Walk to the River</option>
+                <option value="term1/video/unit3_2.webm">A Walk to the River-Pronouns</option>
+                <option value="term1/video/unit4.webm">This, That, These, Those</option>
+                <option value="term1/video/poem2.webm">Here is my Turtle</option>
+                <option value="term1/video/unit5_1.webm">Walking to School</option>
+                <option value="term1/video/unit5_2.webm">Walking to School-Describing Words</option>
+                <option value="term1/video/poem3.webm">Tulips</option>
+            </select>
+            <select id="pdf-select-term1" class="w-full p-2 border rounded-lg" onchange="playMedia('pdf', 'term1')">
+                <option value="">Select PDF</option>
+                <option value="your-document1-term1.pdf">Document 1</option>
+                <option value="your-document2-term1.pdf">Document 2</option>
+            </select>
+        </div>
+        <div id="term2" class="term hidden">
+            <select id="audio-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('audio', 'term2')">
+                <option value="">Select Audio</option>
+                <option value="your-audio1-term2.mp3">Audio 1</option>
+                <option value="your-audio2-term2.mp3">Audio 2</option>
+            </select>
+            <select id="video-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('video', 'term2')">
+                <option value="">Select Video</option>
+                <option value="your-video1-term2.mp4">Video 1</option>
+                <option value="your-video2-term2.mp4">Video 2</option>
+            </select>
+            <select id="pdf-select-term2" class="w-full p-2 border rounded-lg" onchange="playMedia('pdf', 'term2')">
+                <option value="">Select PDF</option>
+                <option value="your-document1-term2.pdf">Document 1</option>
+                <option value="your-document2-term2.pdf">Document 2</option>
+            </select>
+        </div>
+        <div id="media-container" class="mt-4 hidden">
+            <audio id="audio" controls class="hidden w-full mt-2">
+                <source src="audio.ogg" type="audio/ogg">
+                <source src="audio.mp3" type="audio/mp3">
+            </audio>
+            <video id="video" controls class="hidden w-full mt-2">
+                <source src="video.webm" type="video/webm">
+                <source src="video.mp4" type="video/mp4"> <!-- Fallback for unsupported browsers -->
+                Your browser does not support the video tag.
+            </video>
+            <iframe id="pdf" class="hidden w-full h-64 mt-2"></iframe>
+        </div>
+    </div>
+    <script>
+        function updateTerm() {
+            document.querySelectorAll('.term').forEach(el => el.classList.add('hidden'));
+            let selectedTerm = document.getElementById('term-select').value;
+            if (selectedTerm) {
+                document.getElementById(selectedTerm).classList.remove('hidden');
+            }
+        }
+
+        function playMedia(type, term) {
+            document.getElementById('media-container').classList.remove('hidden');
+            document.getElementById('audio').classList.add('hidden');
+            document.getElementById('video').classList.add('hidden');
+            document.getElementById('pdf').classList.add('hidden');
+
+            let selectedFile = document.getElementById(type + '-select-' + term).value;
+            if (selectedFile) {
+                let mediaElement = document.getElementById(type);
+                mediaElement.src = selectedFile;
+                mediaElement.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
